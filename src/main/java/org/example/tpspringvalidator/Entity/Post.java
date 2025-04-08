@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,12 +24,15 @@ public class Post {
     private Long id;
 
     @Column(name = "content")
+    @NotNull
+    @NotBlank(message = "A post must have a content")
     private String content;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "title")
+    @NotNull
     @NotBlank(message = "A post must have a title")
     private String title;
 
